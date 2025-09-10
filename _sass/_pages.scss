@@ -265,6 +265,69 @@ section {
   }
 }
 
+// Skills Section
+.skills-section {
+  padding: $spacing-lg 0;
+  
+  h2 {
+    margin-bottom: $spacing-lg;
+    color: $primary-color;
+    
+    i {
+      margin-right: $spacing-sm;
+      color: $secondary-color;
+    }
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-lg;
+  
+  @media (max-width: $mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skill-category {
+  background: white;
+  padding: $spacing-lg;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  
+  h3 {
+    margin-bottom: $spacing-md;
+    color: $primary-color;
+    font-size: 1.2rem;
+    
+    i {
+      margin-right: $spacing-sm;
+      color: $secondary-color;
+    }
+  }
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.skill-tag {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
 // Education & Interests
 .education-grid {
   display: grid;

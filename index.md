@@ -67,6 +67,58 @@ lang: ja
     </div>
   </div>
 
+  <div class="skills-section">
+    <h2><i class="fas fa-code"></i> <span data-lang-key="about.skills">Technical Skills</span></h2>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h3><i class="fas fa-laptop-code"></i> Frontend Development</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">React.js</span>
+          <span class="skill-tag">Next.js</span>
+          <span class="skill-tag">React Native</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">Tailwind CSS</span>
+        </div>
+      </div>
+      
+      <div class="skill-category">
+        <h3><i class="fas fa-server"></i> Backend Development</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Express.js</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">RESTful APIs</span>
+        </div>
+      </div>
+      
+      <div class="skill-category">
+        <h3><i class="fas fa-database"></i> Database & Cloud</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">Firebase</span>
+          <span class="skill-tag">Supabase</span>
+          <span class="skill-tag">AWS EC2</span>
+          <span class="skill-tag">Vercel</span>
+          <span class="skill-tag">Railway</span>
+        </div>
+      </div>
+      
+      <div class="skill-category">
+        <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Git/GitHub</span>
+          <span class="skill-tag">Nginx</span>
+          <span class="skill-tag">WebSocket</span>
+          <span class="skill-tag">JWT</span>
+          <span class="skill-tag">Agile/Scrum</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="education-section">
     <h2><i class="fas fa-graduation-cap"></i> <span data-lang-key="about.education">Education</span></h2>
     <div class="education-grid">
