@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Yoshiki Katayama</title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ "/assets/images/favicon.svg" | relative_url }}">
+    <link rel="alternate icon" href="{{ "/assets/images/favicon.ico" | relative_url }}">
+    <link rel="apple-touch-icon" href="{{ "/assets/images/favicon.svg" | relative_url }}">
+    
+    {% seo %}
+    {% feed_meta %}
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="wrapper">
+        <nav class="site-nav">
+          <div class="trigger">
+            <span class="nav-links">
+              {% assign t = site.data.translations[page.lang] | default: site.data.translations[site.default_lang] %}
+              <a class="page-link" href="#home" data-lang-key="nav.home">{{ t.nav.home }}</a>
+              <a class="page-link" href="#about" data-lang-key="nav.about">{{ t.nav.about }}</a>
+              <a class="page-link" href="#contact" data-lang-key="nav.contact">{{ t.nav.contact }}</a>
+            </span>
+            
+            <!-- Social Links -->
+            <div class="social-links">
+              <a href="https://github.com/YK4651" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://linkedin.com/in/yoshiki-katayama" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+            
+            <!-- Language Switcher - Commented out for now, easy to re-enable -->
+            <!-- 
+            <div class="language-switcher">
+              <button class="lang-btn" data-lang="ja" title="日本語">🇯🇵</button>
+              <button class="lang-btn" data-lang="en" title="English">🇺🇸</button>
+            </div>
+            -->
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+
+    <script>
+      // Language switching functionality - Commented out for now, easy to re-enable
+      /*
+      const translations = {{ site.data.translations | jsonify }};
+      let currentLang = localStorage.getItem('preferred-language') || 'ja';
+      
+      // Set initial language
+      document.addEventListener('DOMContentLoaded', function() {
+        setLanguage(currentLang);
+      */
+      
+      // Basic functionality without language switching
+      document.addEventListener('DOMContentLoaded', function() {
+        
+        // Mobile menu toggle
+        const nav = document.querySelector('.site-nav');
+        const trigger = document.querySelector('.trigger');
+        
+        const menuButton = document.createElement('button');
+        menuButton.className = 'menu-icon';
+        menuButton.innerHTML = '<i class="fas fa-bars"></i>';
+        menuButton.addEventListener('click', function() {
+          trigger.classList.toggle('active');
+        });
+        
+        nav.insertBefore(menuButton, trigger);
+        
+        // Language switcher event listeners - Commented out for now
+        /*
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
+            setLanguage(lang);
+            localStorage.setItem('preferred-language', lang);
+          });
+        });
+        */
+        
+        // Update active language button - Commented out for now
+        // updateActiveLangButton();
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          });
+        });
+      });
+      
+      // Language switching functions - Commented out for now, easy to re-enable
+      /*
+      function setLanguage(lang) {
+        currentLang = lang;
+        const t = translations[lang];
+        
+        // Update all elements with data-lang-key
+        document.querySelectorAll('[data-lang-key]').forEach(element => {
+          const key = element.getAttribute('data-lang-key');
+          const translation = getNestedTranslation(t, key);
+          if (translation) {
+            element.textContent = translation;
+          }
+        });
+        
+        // Update elements with data-lang-html (for HTML content)
+        document.querySelectorAll('[data-lang-html]').forEach(element => {
+          const key = element.getAttribute('data-lang-html');
+          const translation = getNestedTranslation(t, key);
+          if (translation) {
+            element.innerHTML = translation;
+          }
+        });
+        
+        // Update elements with data-lang-placeholder
+        document.querySelectorAll('[data-lang-placeholder]').forEach(element => {
+          const key = element.getAttribute('data-lang-placeholder');
+          const translation = getNestedTranslation(t, key);
+          if (translation) {
+            element.placeholder = translation;
+          }
+        });
+        
+        updateActiveLangButton();
+      }
+      
+      function getNestedTranslation(obj, key) {
+        return key.split('.').reduce((o, k) => o && o[k], obj);
+      }
+      
+      function updateActiveLangButton() {
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.classList.remove('active');
+          if (btn.getAttribute('data-lang') === currentLang) {
+            btn.classList.add('active');
+          }
+        });
+      }
+      */
+    </script>
+  </body>
+</html>

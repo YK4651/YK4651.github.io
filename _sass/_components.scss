@@ -1,0 +1,219 @@
+// Component styles
+
+// Buttons
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: $border-radius;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  
+  &.btn-primary {
+    background-color: $secondary-color;
+    color: white;
+    
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($secondary-color, 0.3);
+    }
+  }
+  
+  &.btn-secondary {
+    background-color: transparent;
+    color: $secondary-color;
+    border-color: $secondary-color;
+    
+    &:hover {
+      background-color: $secondary-color;
+      color: white;
+      transform: translateY(-2px);
+    }
+  }
+  
+  &.btn-outline {
+    background-color: transparent;
+    color: $primary-color;
+    border-color: $primary-color;
+    
+    &:hover {
+      background-color: $primary-color;
+      color: white;
+      transform: translateY(-2px);
+    }
+  }
+  
+  i {
+    margin-right: $spacing-xs;
+  }
+}
+
+// Cards
+.project-card {
+  background: white;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  padding: $spacing-md;
+  transition: all 0.3s ease;
+  height: 100%;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .project-image {
+    text-align: center;
+    margin-bottom: $spacing-sm;
+    color: $secondary-color;
+    
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: $border-radius;
+    }
+  }
+  
+  .project-content {
+    h3 {
+      margin-bottom: $spacing-xs;
+      color: $primary-color;
+    }
+    
+    p {
+      color: $text-light;
+      margin-bottom: $spacing-sm;
+      line-height: 1.5;
+    }
+  }
+  
+  .project-tags {
+    margin-bottom: $spacing-sm;
+    
+    .tag {
+      display: inline-block;
+      background-color: $light-gray;
+      color: $text-color;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      margin-right: $spacing-xs;
+      margin-bottom: $spacing-xs;
+    }
+  }
+  
+  .project-links {
+    display: flex;
+    gap: $spacing-sm;
+    
+    .project-link {
+      color: $secondary-color;
+      font-weight: 500;
+      
+      i {
+        margin-right: 4px;
+      }
+      
+      &:hover {
+        color: darken($secondary-color, 15%);
+      }
+    }
+  }
+}
+
+// Grids
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-md;
+}
+
+.skill-category {
+  background: white;
+  padding: $spacing-md;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  
+  h3 {
+    color: $primary-color;
+    margin-bottom: $spacing-sm;
+    
+    i {
+      margin-right: $spacing-xs;
+      color: $secondary-color;
+    }
+  }
+  
+  ul {
+    margin-left: 0;
+    list-style: none;
+    
+    li {
+      padding: $spacing-xs 0;
+      border-bottom: 1px solid $border-color;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      &:before {
+        content: '✓';
+        color: $secondary-color;
+        font-weight: bold;
+        margin-right: $spacing-xs;
+      }
+    }
+  }
+}
+
+// Utilities
+.text-center {
+  text-align: center;
+}
+
+.lead {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: $text-light;
+}
+
+// Sections
+section {
+  margin-bottom: $spacing-xl;
+  
+  h2 {
+    text-align: center;
+    margin-bottom: $spacing-lg;
+    position: relative;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: $secondary-color;
+      border-radius: 2px;
+    }
+    
+    i {
+      margin-right: $spacing-xs;
+      color: $secondary-color;
+    }
+  }
+}

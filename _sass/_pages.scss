@@ -1,0 +1,420 @@
+// Page-specific styles
+
+// Single page layout
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    pointer-events: none;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 $spacing-sm;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: $spacing-sm;
+    color: white;
+    
+    @media (max-width: $mobile) {
+      font-size: 2rem;
+    }
+  }
+  
+  .hero-description {
+    font-size: 1.1rem;
+    margin-bottom: $spacing-md;
+    opacity: 0.9;
+    line-height: 1.6;
+    text-align: left;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: $spacing-sm;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+    .btn {
+      background-color: white;
+      color: $primary-color;
+      
+      &:hover {
+        background-color: $light-gray;
+        transform: translateY(-2px);
+      }
+      
+      &.btn-secondary {
+        background-color: transparent;
+        color: white;
+        border-color: white;
+        
+        &:hover {
+          background-color: white;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+// Section spacing for single page
+section {
+  padding: $spacing-lg 0;
+  
+  &#about {
+    background-color: $light-gray;
+  }
+  
+  &#projects {
+    background-color: white;
+  }
+  
+  &#contact {
+    background-color: $light-gray;
+  }
+}
+
+.skills-section {
+  background-color: white;
+  padding: $spacing-lg 0;
+}
+
+// About section
+.about-section {
+  .about-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .experience-section {
+    padding: $spacing-lg;
+    margin-bottom: $spacing-lg;
+    
+    h2 {
+      margin-bottom: $spacing-lg;
+      color: $primary-color;
+      
+      i {
+        margin-right: $spacing-sm;
+        color: $secondary-color;
+      }
+    }
+  }
+  
+  .education-section {
+    padding: $spacing-lg;
+    
+    h2 {
+      margin-bottom: $spacing-lg;
+      color: $primary-color;
+      
+      i {
+        margin-right: $spacing-sm;
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+.about-intro {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-lg;
+  
+  @media (max-width: $mobile) {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-image {
+    flex-shrink: 0;
+    color: $secondary-color;
+    
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: $box-shadow;
+    }
+  }
+  
+  .intro-text {
+    flex: 1;
+    
+    h2 {
+      text-align: left;
+      margin-bottom: $spacing-sm;
+      
+      @media (max-width: $mobile) {
+        text-align: center;
+      }
+      
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+// Timeline
+.timeline {
+  position: relative;
+  padding-left: $spacing-md;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: $secondary-color;
+  }
+}
+
+// Project summary styling
+.project-summary {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  padding: $spacing-md;
+  margin: $spacing-sm 0;
+  border-radius: $border-radius;
+  color: $text-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  
+  strong {
+    color: $primary-color;
+    font-weight: 600;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: $spacing-lg;
+  padding-left: $spacing-lg;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: $secondary-color;
+  }
+  
+  .timeline-date {
+    font-weight: 600;
+    color: $secondary-color;
+    margin-bottom: $spacing-xs;
+  }
+  
+  .timeline-content {
+    h3 {
+      margin-bottom: $spacing-xs;
+    }
+    
+    p {
+      color: $text-light;
+    }
+  }
+}
+
+// Project Header with Logo
+.project-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: $spacing-sm;
+  
+  .project-logo {
+    height: 2.5rem; // タイトルサイズに合わせる
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  
+  // Receiptly logo specific sizing
+  .project-logo[alt="Receiptly Logo"] {
+    height: 3rem; // 少し大きく
+  }
+}
+
+// Education & Interests
+.education-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+}
+
+.education-item {
+  background: white;
+  padding: $spacing-md;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  
+  h3 {
+    color: $primary-color;
+    margin-bottom: $spacing-xs;
+  }
+  
+  ul {
+    margin-left: $spacing-sm;
+    
+    li {
+      color: $text-light;
+    }
+  }
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-md;
+}
+
+.interest-item {
+  background: white;
+  padding: $spacing-md;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  text-align: center;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+  
+  i {
+    font-size: 2rem;
+    color: $secondary-color;
+    margin-bottom: $spacing-sm;
+  }
+  
+  h3 {
+    margin-bottom: $spacing-xs;
+  }
+  
+  p {
+    color: $text-light;
+    font-size: 0.9rem;
+  }
+}
+
+// Contact section
+.contact-section {
+  .contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .contact-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .contact-form-section {
+    background: white;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: $box-shadow;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-form {
+    max-width: 100%;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: $primary-color;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    font-family: inherit;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: $secondary-color;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .response-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .info-card {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: $box-shadow;
+
+    i {
+      font-size: 2rem;
+      color: $secondary-color;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      margin-bottom: 0.5rem;
+      color: $primary-color;
+    }
+
+    p {
+      color: $text-light;
+      font-size: 0.9rem;
+    }
+  }
+}
