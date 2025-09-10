@@ -153,9 +153,6 @@ lang: ja
       </div>
 
       <div class="contact-form-section">
-        <h3 data-lang-key="contact.form_title">お問い合わせフォーム</h3>
-        <p data-lang-key="contact.form_intro">以下のフォームから直接メッセージをお送りいただけます：</p>
-        
         <form class="contact-form" action="https://formspree.io/f/xandvdnd" method="POST">
           <div class="form-group">
             <label for="name" data-lang-key="contact.name">お名前</label>
