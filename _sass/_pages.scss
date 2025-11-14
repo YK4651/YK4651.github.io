@@ -577,16 +577,6 @@ section {
     li {
       color: $text-light;
       line-height: 1.8;
-      position: relative;
-      padding-left: $spacing-sm;
-      
-      &::before {
-        content: '\25B8';
-        position: absolute;
-        left: -$spacing-md;
-        color: $secondary-color;
-        font-weight: bold;
-      }
     }
   }
 }
