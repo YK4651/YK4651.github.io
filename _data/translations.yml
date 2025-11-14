@@ -4,8 +4,9 @@ ja:
     title: "Yoshiki Katayama"
     description: "現実の問題を解決する革新的なWebソリューションの開発に情熱を持つフルスタック開発者"
   nav:
-    home: "HOME"
-    about: "ABOUT ME"
+    home: "ABOUT ME"
+    about: "EXPERIENCE"
+    skills: "SKILLS"
     contact: "CONTACT"
   home:
     hero_title: "Yoshiki Katayama - 片山美輝"
@@ -61,8 +62,9 @@ en:
     title: "Yoshiki Katayama"
     description: "Full-Stack Web Developer passionate about creating innovative web solutions that solve real-world problems"
   nav:
-    home: "Home"
-    about: "About"
+    home: "ABOUT ME"
+    about: "EXPERIENCE"
+    skills: "SKILLS"
     contact: "Contact"
   home:
     hero_title: "Full-Stack Web Developer"

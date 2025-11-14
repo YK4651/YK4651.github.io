@@ -1,22 +1,29 @@
+@charset "UTF-8";
+
 // Colors
-$primary-color: #333;
-$secondary-color: #333;
-$accent-color: #333;
-$text-color: #333;
-$text-light: #666;
-$background-color: #fff;
-$light-gray: #f8f9fa;
-$border-color: #e9ecef;
+$primary-color: #1a1a2e;
+$secondary-color: #667eea;
+$accent-color: #764ba2;
+$text-color: #2d3748;
+$text-light: #718096;
+$background-color: #ffffff;
+$light-gray: #f7fafc;
+$border-color: #e2e8f0;
+$gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+$gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 
 // Fonts
-$font-family-base: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-$font-family-mono: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+$font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, 'Helvetica Neue', Arial, sans-serif;
+$font-family-mono: 'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
 
 // Sizes
 $base-font-size: 16px;
-$base-line-height: 1.6;
-$border-radius: 8px;
-$box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+$base-line-height: 1.7;
+$border-radius: 12px;
+$box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+$box-shadow-hover: 0 8px 30px rgba(102, 126, 234, 0.15);
+$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
 // Breakpoints
 $mobile: 768px;

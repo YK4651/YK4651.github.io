@@ -9,7 +9,7 @@ lang: ja
   <div class="hero-content">
     <h1 class="hero-title" data-lang-key="home.hero_title">Yoshiki Katayama</h1>
     <p class="hero-description" data-lang-html="home.hero_description">
-      現代のWeb技術を活用したフルスタック開発者として、限られた期間内でのシステム開発に取り組んできた経験があります。小規模開発チームでのリーダー経験を持ち、フロントエンドとバックエンドの両方の開発を経験し、ユーザーを第一に考えたアプリケーション開発に取り組んでいます。実際の課題解決につながるWebアプリケーションの開発に強い関心を持ち、使いやすいユーザー体験の実現を目指しています。
+      フルスタック開発者として、限られた期間内でのシステム開発に取り組んできました。小規模開発チームでのリーダー経験を持ち、フロントエンドとバックエンドの両方の開発を経験し、ユーザーを第一に考えたアプリケーション開発に取り組んでいます。実際の課題解決につながるWebアプリケーションの開発に強い関心を持ち、使いやすいユーザー体験の実現を目指しています。
     </p>
   </div>
 </section>
@@ -59,7 +59,7 @@ lang: ja
           </div>
           <p><strong>🏆 Best Web Product Award受賞</strong></p>
           <p class="project-summary"><strong>Pawkit</strong>は不要になったペット用品を必要としている人に譲るためのWebアプリです。使わなくなったアイテムを投稿し、他のユーザーがそれらを閲覧して受け取ることができ、持続可能な社会づくりに貢献します。</p>
-          <p>犬のオーナー同士が不要になった用品を譲り合えるプラットフォームを、JavaScript、Firebase、Node.jsを使用して構築しました。フルスタック開発者として、Firebaseのリアルタイムデータベース処理と認証システムの実装から、フロントエンドのUI開発まで一貫して担当しました。</p>
+          <p>犬のオーナー同士が不要になった用品を譲り合えるプラットフォームを、JavaScript、Firebaseを使用して構築しました。フロントエンドのUI開発を主に担当し、Firebaseのリアルタイムデータベース処理と認証システムの実装も行いました。</p>
           <p>デザイナーとの連携により、デザイン仕様に忠実な実装を行い、チーム開発の円滑な進行に貢献しました。</p>
           <p><strong>技術スタック:</strong> JavaScript, Firebase, Node.js, HTML5, CSS3</p>
         </div>
@@ -67,7 +67,11 @@ lang: ja
     </div>
   </div>
 
-  <div class="skills-section">
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="skills-section">
+  <div class="container">
     <h2><i class="fas fa-code"></i> <span data-lang-key="about.skills">Technical Skills</span></h2>
     <div class="skills-grid">
       <div class="skill-category">
@@ -118,8 +122,11 @@ lang: ja
       </div>
     </div>
   </div>
+</section>
 
-  <div class="education-section">
+<!-- Education Section -->
+<section id="education" class="education-section">
+  <div class="container">
     <h2><i class="fas fa-graduation-cap"></i> <span data-lang-key="about.education">Education</span></h2>
     <div class="education-grid">
       <div class="education-item">

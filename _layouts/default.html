@@ -32,6 +32,7 @@
               {% assign t = site.data.translations[page.lang] | default: site.data.translations[site.default_lang] %}
               <a class="page-link" href="#home" data-lang-key="nav.home">{{ t.nav.home }}</a>
               <a class="page-link" href="#about" data-lang-key="nav.about">{{ t.nav.about }}</a>
+              <a class="page-link" href="#skills" data-lang-key="nav.skills">{{ t.nav.skills }}</a>
               <a class="page-link" href="#contact" data-lang-key="nav.contact">{{ t.nav.contact }}</a>
             </span>
             
@@ -90,6 +91,24 @@
         });
         
         nav.insertBefore(menuButton, trigger);
+        
+        // Header scroll effect
+        const header = document.querySelector('.site-header');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', function() {
+          const currentScroll = window.pageYOffset;
+          
+          if (currentScroll > 100) {
+            header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+            header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+          } else {
+            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
+            header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+          }
+          
+          lastScroll = currentScroll;
+        });
         
         // Language switcher event listeners - Commented out for now
         /*

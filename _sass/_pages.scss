@@ -1,52 +1,102 @@
+@charset "UTF-8";
+
 // Page-specific styles
 
 // Single page layout
 .hero-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: $gradient-primary;
   color: white;
-  padding: 4rem 0;
+  padding: 6rem 0;
   text-align: center;
-  min-height: 60vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
   
   &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: pulse 20s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  &::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.3;
     pointer-events: none;
   }
   
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1) rotate(0deg);
+    }
+    50% {
+      transform: scale(1.1) rotate(180deg);
+    }
+  }
+  
   .hero-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 0 $spacing-sm;
+    padding: 0 $spacing-md;
     position: relative;
     z-index: 1;
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   .hero-title {
-    font-size: 2.5rem;
-    margin-bottom: $spacing-sm;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: $spacing-md;
     color: white;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
     
     @media (max-width: $mobile) {
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
   }
   
   .hero-description {
-    font-size: 1.1rem;
-    margin-bottom: $spacing-md;
-    opacity: 0.9;
-    line-height: 1.6;
+    font-size: 1.2rem;
+    margin-bottom: $spacing-lg;
+    opacity: 0.95;
+    line-height: 1.8;
     text-align: left;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: $spacing-md;
+    border-radius: $border-radius;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    @media (max-width: $mobile) {
+      font-size: 1.1rem;
+      padding: $spacing-sm;
+    }
   }
   
   .hero-buttons {
@@ -58,10 +108,13 @@
     .btn {
       background-color: white;
       color: $primary-color;
+      font-weight: 600;
+      padding: $spacing-sm $spacing-md;
       
       &:hover {
         background-color: $light-gray;
-        transform: translateY(-2px);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
       }
       
       &.btn-secondary {
@@ -80,10 +133,15 @@
 
 // Section spacing for single page
 section {
-  padding: $spacing-lg 0;
+  padding: $spacing-xl 0;
+  position: relative;
   
   &#about {
-    background-color: $light-gray;
+    background: linear-gradient(to bottom, $light-gray 0%, white 100%);
+  }
+  
+  &#skills {
+    background-color: white;
   }
   
   &#projects {
@@ -91,14 +149,10 @@ section {
   }
   
   &#contact {
-    background-color: $light-gray;
+    background: linear-gradient(to bottom, white 0%, $light-gray 100%);
   }
 }
 
-.skills-section {
-  background-color: white;
-  padding: $spacing-lg 0;
-}
 
 // About section
 .about-section {
@@ -108,12 +162,13 @@ section {
   }
   
   .experience-section {
-    padding: $spacing-lg;
-    margin-bottom: $spacing-lg;
+    padding: $spacing-lg 0;
+    margin-bottom: $spacing-xl;
     
     h2 {
-      margin-bottom: $spacing-lg;
+      margin-bottom: $spacing-xl;
       color: $primary-color;
+      text-align: center;
       
       i {
         margin-right: $spacing-sm;
@@ -123,11 +178,12 @@ section {
   }
   
   .education-section {
-    padding: $spacing-lg;
+    padding: $spacing-lg 0;
     
     h2 {
-      margin-bottom: $spacing-lg;
+      margin-bottom: $spacing-xl;
       color: $primary-color;
+      text-align: center;
       
       i {
         margin-right: $spacing-sm;
@@ -190,22 +246,36 @@ section {
     left: 15px;
     top: 0;
     bottom: 0;
-    width: 2px;
-    background-color: $secondary-color;
+    width: 3px;
+    background: $gradient-primary;
+    border-radius: 2px;
   }
 }
 
 // Project summary styling
 .project-summary {
-  background: #f8f9fa;
-  border: 1px solid #e9ecef;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  border-left: 4px solid $secondary-color;
   padding: $spacing-md;
-  margin: $spacing-sm 0;
+  margin: $spacing-md 0;
   border-radius: $border-radius;
   color: $text-color;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   font-size: 1.05rem;
-  line-height: 1.6;
+  line-height: 1.7;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: $spacing-md;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: $gradient-primary;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
   
   strong {
     color: $primary-color;
@@ -215,33 +285,87 @@ section {
 
 .timeline-item {
   position: relative;
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacing-xl;
   padding-left: $spacing-lg;
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+  
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.1}s;
+    }
+  }
   
   &:before {
     content: '';
     position: absolute;
-    left: -6px;
-    top: 5px;
-    width: 12px;
-    height: 12px;
+    left: -8px;
+    top: 8px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
-    background-color: $secondary-color;
+    background: $gradient-primary;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    z-index: 1;
   }
   
   .timeline-date {
-    font-weight: 600;
+    font-weight: 700;
     color: $secondary-color;
-    margin-bottom: $spacing-xs;
+    margin-bottom: $spacing-sm;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
   }
   
   .timeline-content {
+    background: white;
+    padding: $spacing-lg;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    transition: $transition;
+    border: 1px solid $border-color;
+    
+    &:hover {
+      transform: translateX(5px);
+      box-shadow: $box-shadow-hover;
+    }
+    
     h3 {
-      margin-bottom: $spacing-xs;
+      margin-bottom: $spacing-sm;
+      color: $primary-color;
     }
     
     p {
       color: $text-light;
+      line-height: 1.7;
+      margin-bottom: $spacing-sm;
+    }
+    
+    strong {
+      color: $primary-color;
+      font-weight: 600;
+    }
+    
+    a {
+      color: $secondary-color;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: $transition;
+      position: relative;
+      
+      &::after {
+        content: ' \2197';
+        font-size: 0.9em;
+        opacity: 0.7;
+      }
+      
+      &:hover {
+        color: darken($secondary-color, 10%);
+        border-bottom-color: $secondary-color;
+      }
     }
   }
 }
@@ -250,28 +374,38 @@ section {
 .project-header {
   display: flex;
   align-items: center;
-  margin-bottom: $spacing-sm;
+  margin-bottom: $spacing-md;
+  padding-bottom: $spacing-sm;
+  border-bottom: 2px solid $border-color;
   
   .project-logo {
-    height: 2.5rem; // タイトルサイズに合わせる
+    height: 3rem;
     width: auto;
     object-fit: contain;
     flex-shrink: 0;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    transition: $transition;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
   }
   
   // Receiptly logo specific sizing
   .project-logo[alt="Receiptly Logo"] {
-    height: 3rem; // 少し大きく
+    height: 3.5rem;
   }
 }
 
 // Skills Section
 .skills-section {
-  padding: $spacing-lg 0;
+  padding: $spacing-xl 0;
+  background-color: white;
   
   h2 {
-    margin-bottom: $spacing-lg;
+    margin-bottom: $spacing-xl;
     color: $primary-color;
+    text-align: center;
     
     i {
       margin-right: $spacing-sm;
@@ -295,15 +429,43 @@ section {
   padding: $spacing-lg;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
+  transition: $transition;
+  border: 1px solid $border-color;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: $gradient-primary;
+    transform: scaleY(0);
+    transition: $transition;
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $box-shadow-hover;
+    
+    &::before {
+      transform: scaleY(1);
+    }
+  }
   
   h3 {
     margin-bottom: $spacing-md;
     color: $primary-color;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
     
     i {
       margin-right: $spacing-sm;
       color: $secondary-color;
+      font-size: 1.3rem;
     }
   }
 }
@@ -315,16 +477,35 @@ section {
 }
 
 .skill-tag {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: $gradient-primary;
   color: white;
   padding: $spacing-xs $spacing-sm;
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 500;
-  transition: transform 0.2s ease;
+  transition: $transition;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
   
   &:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    
+    &::before {
+      left: 100%;
+    }
   }
 }
 
@@ -337,20 +518,75 @@ section {
 
 .education-item {
   background: white;
-  padding: $spacing-md;
+  padding: $spacing-lg;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
+  border: 1px solid $border-color;
+  transition: $transition;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: $gradient-primary;
+    transform: scaleX(0);
+    transition: $transition;
+  }
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $box-shadow-hover;
+    
+    &::before {
+      transform: scaleX(1);
+    }
+  }
   
   h3 {
     color: $primary-color;
+    margin-bottom: $spacing-sm;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    
+    &::before {
+      content: '';
+      display: none;
+    }
+  }
+  
+  p {
+    color: $text-light;
     margin-bottom: $spacing-xs;
+    
+    strong {
+      color: $primary-color;
+      font-weight: 600;
+    }
   }
   
   ul {
-    margin-left: $spacing-sm;
+    margin-left: $spacing-md;
+    margin-top: $spacing-sm;
     
     li {
       color: $text-light;
+      line-height: 1.8;
+      position: relative;
+      padding-left: $spacing-sm;
+      
+      &::before {
+        content: '\25B8';
+        position: absolute;
+        left: -$spacing-md;
+        color: $secondary-color;
+        font-weight: bold;
+      }
     }
   }
 }
@@ -398,18 +634,41 @@ section {
 
   .contact-intro {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: $spacing-xl;
+    
+    h2 {
+      margin-bottom: $spacing-md;
+    }
+    
+    .lead {
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
   }
 
   .contact-form-section {
     background: white;
-    padding: 3rem;
-    border-radius: 8px;
+    padding: $spacing-xl;
+    border-radius: $border-radius;
     box-shadow: $box-shadow;
-    margin-bottom: 3rem;
-    max-width: 600px;
+    margin-bottom: $spacing-xl;
+    max-width: 650px;
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid $border-color;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: $gradient-primary;
+    }
   }
 
   .contact-form {
@@ -417,38 +676,47 @@ section {
   }
 
   .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: $spacing-md;
+    position: relative;
   }
 
   .form-group label {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: $spacing-xs;
     font-weight: 600;
     color: $primary-color;
+    font-size: 0.95rem;
   }
 
   .form-group input,
   .form-group select,
   .form-group textarea {
     width: 100%;
-    padding: 12px;
-    border: 2px solid #e9ecef;
-    border-radius: 8px;
+    padding: $spacing-sm $spacing-md;
+    border: 2px solid $border-color;
+    border-radius: $border-radius;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: $transition;
     font-family: inherit;
-  }
-
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: $secondary-color;
+    background: $light-gray;
+    
+    &:focus {
+      outline: none;
+      border-color: $secondary-color;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    
+    &::placeholder {
+      color: $text-light;
+      opacity: 0.6;
+    }
   }
 
   .form-group textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 140px;
+    line-height: 1.6;
   }
 
   .response-info {

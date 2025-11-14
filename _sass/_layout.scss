@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 // Layout styles
 .wrapper {
   max-width: $desktop;
@@ -13,13 +15,15 @@
 
 // Header
 .site-header {
-  background-color: $background-color;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid $border-color;
-  padding: $spacing-xs 0;
+  padding: $spacing-sm 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+  transition: $transition;
   
   .wrapper {
     display: flex;
@@ -80,14 +84,30 @@
   .page-link {
     color: $text-color;
     font-weight: 500;
-    padding: $spacing-xs;
+    padding: $spacing-xs $spacing-sm;
     border-radius: $border-radius;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
+    transition: $transition;
+    font-size: 0.95rem;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 80%;
+      height: 2px;
+      background: $gradient-primary;
+      transition: $transition;
+    }
     
     &:hover {
-      background-color: $light-gray;
       color: $secondary-color;
+      
+      &::after {
+        transform: translateX(-50%) scaleX(1);
+      }
     }
   }
   
@@ -124,21 +144,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: none;
-    border: 2px solid $primary-color;
+    width: 42px;
+    height: 42px;
+    background: $gradient-primary;
+    border: none;
     border-radius: 50%;
-    color: $primary-color;
+    color: white;
     text-decoration: none;
     font-size: 1.2rem;
-    transition: all 0.3s ease;
+    transition: $transition;
     
     &:hover {
-      background-color: $primary-color;
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: $box-shadow-hover;
     }
     
     i {

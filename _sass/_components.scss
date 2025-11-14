@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 // Component styles
 
 // Buttons
@@ -14,13 +16,34 @@
   font-size: 1rem;
   
   &.btn-primary {
-    background-color: $secondary-color;
+    background: $gradient-primary;
     color: white;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
     
     &:hover {
-      background-color: darken($secondary-color, 10%);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba($secondary-color, 0.3);
+      transform: translateY(-3px);
+      box-shadow: $box-shadow-hover;
+      
+      &::before {
+        left: 100%;
+      }
+    }
+    
+    &:active {
+      transform: translateY(-1px);
     }
   }
   
@@ -170,7 +193,7 @@
       }
       
       &:before {
-        content: '✓';
+        content: '\2713';
         color: $secondary-color;
         font-weight: bold;
         margin-right: $spacing-xs;
@@ -196,24 +219,32 @@ section {
   
   h2 {
     text-align: center;
-    margin-bottom: $spacing-lg;
+    margin-bottom: $spacing-xl;
     position: relative;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: $primary-color;
+    
+    @media (max-width: $mobile) {
+      font-size: 2rem;
+    }
     
     &:after {
       content: '';
       position: absolute;
-      bottom: -10px;
+      bottom: -$spacing-md;
       left: 50%;
       transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background-color: $secondary-color;
+      width: 80px;
+      height: 4px;
+      background: $gradient-primary;
       border-radius: 2px;
     }
     
     i {
-      margin-right: $spacing-xs;
+      margin-right: $spacing-sm;
       color: $secondary-color;
+      font-size: 2rem;
     }
   }
 }
